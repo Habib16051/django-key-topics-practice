@@ -1,0 +1,62 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination Document</title>
+  </head>
+  <body>
+    <h1>Welcome to the homepage!</h1>
+
+    <div>
+      {% for obj in all_post %}
+      <h1>{{obj.title}}</h1>
+      <p>{{obj.desc}}</p>
+      <small>{{obj.publish_date}}</small>
+      {%endfor%}
+
+      <div>
+        {% if all_post.has_previous %}
+        <a href="?page={{all_post.previous_page_number}}">Previous</a>
+        {% endif %}
+        <span>{{all_post.number}}</span>
+
+        {% if all_post.has_next %}
+        <a href="?page={{all_post.next_page_number}}">Next</a>
+        {% endif %}
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post List</title>
+  </head>
+  <body>
+    <h1>Post List</h1>
+
+    <div>
+      {% for post in all_post %}
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.desc }}</p>
+      <small>{{post.publish_date}}</small>
+      <hr />
+      {% endfor %}
+    </div>
+
+    <div>
+      {% if all_post.has_previous %}
+      <a href="?page=1">First</a>
+      <a href="?page={{ all_post.previous_page_number }}">Previous</a>
+      {% endif %}
+
+      <span>{{ all_post.number }}</span>
+
+      {% if all_post.has_next %}
+      <a href="?page={{ all_post.next_page_number }}">Next</a>
+      <!-- <a href="?page={{ all_post.paginator.num_pages }}">Last</a> -->
+      {% endif %}
+    </div>
+  </body>
+</html>

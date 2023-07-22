@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <h1>Accha! Welcome to you!</h1>
+    {% endblock title %}
+  </head>
+  <body>
+    {% block content %}
+    <div>
+      <li>Name: {{name}}</li>
+      <li>Email: {{email}}</li>
+      <li>Home: {{home}}</li>
+      <li>Date:{{duration|date:"Y-m-d"}}</li>
+    </div>
+
+    {% include 'new.html' %} {% endblock content %}
+  </body>
+</html>
